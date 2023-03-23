@@ -1,0 +1,106 @@
+.formulario {
+  max-width: 23rem;
+}
+
+.formulario > h1 {
+  padding: 0.5rem 0;
+}
+
+.form {
+  margin-top: 2rem;
+}
+
+.form label {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+  color: #1e293b;
+}
+
+.form input {
+  width: 100%;
+  margin: 0.4rem 0;
+  padding: 1rem 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  outline: none;
+}
+
+.form input:hover,
+.form input:focus {
+  border: 1px solid #7c3aed;
+}
+
+.error {
+  font-weight: 400;
+  font-size: 14px;
+  color: #ed3a5a;
+  margin-bottom: 0.3rem;
+  margin-top: -5px;
+}
+
+.password {
+  position: relative;
+}
+
+.olho {
+  position: absolute;
+  top: 22px;
+  right: 12px;
+  cursor: pointer;
+}
+
+.form input::placeholder {
+  color: #94a3b8;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.senha {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media(max-width: 550px) {
+  .senha {
+    flex-direction: column;
+    align-items: baseline;
+  }
+}
+
+.esqueceuSenha,
+a {
+  text-decoration: none;
+  color: #7c3aed;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.esqueceuSenha:hover,
+a:hover {
+  text-decoration: underline;
+}
+
+.form > button {
+  width: 100%;
+  font-weight: 700;
+  font-size: 16px;
+  color: #fff;
+  background: #7c3aed;
+  border-radius: 4px;
+  padding: 16px 24px;
+  margin: 2rem 0;
+  border: none;
+  cursor: pointer;
+}
+
+.form button:hover {
+  background: #9f67ff;
+}
+
+.inscrevaSe {
+  font-weight: 400;
+  color: #475569;
+  margin-top: -10px;
+}
