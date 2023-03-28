@@ -1,7 +1,7 @@
 import React from 'react'
 import img from './assets/img.jpg'
 import logo from './assets/logo.png'
-import FormLogin from './componentes/FormLogin'
+import FormLogin from "../src/componentes/FormLogin/FormLogin"
 
 const App = () => {
   return (

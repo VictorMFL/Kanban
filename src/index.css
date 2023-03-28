@@ -2,12 +2,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Titillium Web';
 }
 
 .container {
   display: flex;
   justify-content: center;
+  font-family: "Titillium Web";
 }
 
 .container > section {
@@ -46,13 +46,13 @@ h1 {
   flex-direction: column;
 }
 
-@media(max-width: 890px) {
+@media (max-width: 890px) {
   .container > img {
     display: none;
   }
   .container > section {
     width: 75%;
-  } 
+  }
   .container {
     font-size: 0.8rem;
   }
@@ -61,7 +61,7 @@ h1 {
   }
 }
 
-@media(max-width: 550px) {
+@media (max-width: 550px) {
   .container > section {
     width: 100%;
     padding: 2rem;
@@ -74,8 +74,16 @@ h1 {
   }
 }
 
-@media(min-width:1450px) {
+@media (min-width: 1450px) {
   .container > section {
     align-items: center;
   }
+}
+
+/* Navegação */
+.containerNav {
+  display: grid;
+  grid-template-columns: 15rem 1fr;
+  background-color: #7c3aed;
+  min-height: 100vh;
 }

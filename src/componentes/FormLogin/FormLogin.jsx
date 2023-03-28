@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./FormLogin.module.css";
-import Eye from "../assets/eye.png"
-import EyeOff from "../assets/eye-off.png"
+import Eye from "../../assets/eye.png"
+import EyeOff from "../../assets/eye-off.png"
 import { Link, useNavigate } from "react-router-dom";
 
 const FormLogin = () => {
@@ -46,7 +46,7 @@ const FormLogin = () => {
     event.preventDefault()
     window.localStorage.setItem('Email', email)
     window.localStorage.setItem('Senha', senha)
-    navigate('/Kanban/home')
+    navigate('/Kanban/boards')
   }
 
   return (
