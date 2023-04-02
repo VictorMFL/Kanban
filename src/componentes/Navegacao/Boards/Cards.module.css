@@ -1,0 +1,40 @@
+.areaCard {
+  padding: 24px;
+  max-width: 300px;
+  min-height: 9rem;
+  background: #ffffff;
+  box-shadow: 0px 4px 16px #eae2fd;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  line-break: anywhere;
+}
+
+.description {
+  margin-bottom: 1rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+  line-break: anywhere;
+  color: #756966;
+}
+
+.hastag {
+  background: #e2d6ff;
+  border-radius: 8px;
+  padding: 6px;
+  font-size: 0.9rem;
+  margin-right: 8px;
+  color: #7c3aed;
+  font-weight: 500;
+  line-break: anywhere;
+}

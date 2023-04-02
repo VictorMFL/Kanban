@@ -4,14 +4,15 @@
   padding: 4rem;
   background-color: #fff;
   font-family: "Inter";
+  position: relative;
 }
 
-.boards > h1 {
+.boards > .title {
   position: relative;
   margin-bottom: 3rem;
 }
 
-.boards > h1::after {
+.boards > .title::after {
   content: "";
   width: 24px;
   height: 24px;
@@ -27,6 +28,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 10px;
+  margin-bottom: 3rem;
 }
 
 .pesquisa > select {
@@ -65,8 +67,9 @@
   position: relative;
 }
 
-.areaInput > img {
+.areaInput img {
   position: absolute;
+  top: 15px;
   left: 2.5rem;
   cursor: pointer;
 }
@@ -87,4 +90,76 @@
 
 .input:focus {
   border: 2px solid #7c3aed;
+}
+
+.gridCards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.gridCards > div > h3 {
+  margin-bottom: 2rem;
+}
+
+.afazer {
+  position: relative;
+}
+
+.afazer::after {
+  content: "";
+  display: block;
+  width: 34px;
+  height: 34px;
+  position: absolute;
+  left: 70px;
+  top: -5px;
+  background-image: url(../../../assets/afazer.svg);
+  background-size: cover;
+}
+
+.fazendo {
+  position: relative;
+}
+
+.fazendo::after {
+  content: "";
+  display: block;
+  width: 34px;
+  height: 34px;
+  position: absolute;
+  left: 80px;
+  top: -5px;
+  background-image: url(../../../assets/fazendo.svg);
+  background-size: cover;
+}
+
+.feito {
+  position: relative;
+}
+
+.feito::after {
+  content: "";
+  display: block;
+  width: 34px;
+  height: 34px;
+  position: absolute;
+  left: 50px;
+  top: -5px;
+  background-image: url(../../../assets/feito.svg);
+  background-size: cover;
+}
+
+.criarCard {
+  position: fixed;
+  bottom: 2rem;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #7c3aed;
+  border-radius: 50%;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
 }

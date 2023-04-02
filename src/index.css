@@ -87,3 +87,22 @@ h1 {
   background-color: #7c3aed;
   min-height: 100vh;
 }
+
+/* Fomulario de criação de cards */
+.form {
+  width: 70%;
+  min-height: 70vh;
+  position: fixed;
+  top: 0;
+  margin: 0 auto;
+  background-color: rgba(211, 211, 211, 0.9);
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form > input {
+  margin-bottom: 2rem;
+  padding: 1rem;
+}

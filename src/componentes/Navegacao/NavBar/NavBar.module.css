@@ -2,6 +2,7 @@
 
 .navegacao {
   padding: 2.5rem;
+  position: fixed;
 }
 
 .navegacao > img {
