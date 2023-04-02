@@ -5,7 +5,7 @@ import { Link, NavLink } from "react-router-dom";
 import BoardsSvg from "../../../assets/BoardsSvg";
 import EquipeSvg from "../../../assets/EquipeSvg";
 import RelatorioSvg from "../../../assets/RelatorioSvg";
-import ConfigSvg from "../../../assets/configSvg";
+import ConfigSvg from "../../../assets/ConfigSvg";
 
 const NavBar = () => {
   const [boards, setBoards] = React.useState(false);
