@@ -7,7 +7,7 @@ const Cards = ({ title, description, hastag }) => {
       <div className={styles.card}>
         <p className={styles.title}>{title}</p>
         <p className={styles.description}>{description}</p>
-        <span className={styles.hastag}>{hastag}</span>
+        {hastag === '' ? null : <span className={styles.hastag}>{hastag}</span>}
       </div>
     </div>
   );

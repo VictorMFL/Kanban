@@ -14,18 +14,16 @@ const Boards = () => {
   const [criarCard, setCriarCard] = React.useState(false);
   const [card, setCard] = React.useState([
     {
-      title: "titleOBJ",
-      description: "DescriptionOBJ",
-      hastag: "ha",
-    },
-    {
-      title: 'OBJ2',
-      description: 'DESC2',
-      hastag: 'HAS@'
+      title: "Exemplo de Título",
+      description: "Exemplo de Descrição",
+      hastag: "#Exemplo",
+      afazer: true,
+      fazendo: false,
+      feito: false,
     },
   ]);
 
-  console.log(card)
+  console.log(card);
 
   function handleChange({ target }) {
     setPequisa(target.value);
@@ -73,26 +71,47 @@ const Boards = () => {
         <section className={styles.gridCards}>
           <div>
             <h3 className={styles.afazer}>A fazer</h3>
-            {card.map((item, index) => (
-              <Cards key={index} title={item.title} description={item.description} hastag={item.hastag} />
-            ))}
+            {card.map((item, index) => {
+              if(item.afazer === true) {
+                return <Cards
+                key={index}
+                title={item.title}
+                description={item.description}
+                hastag={item.hastag}
+              />
+              }
+            })}
           </div>
 
           <div>
             <h3 className={styles.fazendo}>Fazendo</h3>
             <div className={styles.card}>
-            {card.map((item, index) => (
-              <Cards key={index} title={item.title} description={item.description} hastag={item.hastag} />
-            ))}
+              {card.map((item, index) => {
+              if(item.fazendo === true) {
+                return <Cards
+                key={index}
+                title={item.title}
+                description={item.description}
+                hastag={item.hastag}
+              />
+              }
+            })}
             </div>
           </div>
 
           <div>
             <h3 className={styles.feito}>Feito</h3>
             <div className={styles.card}>
-            {card.map((item, index) => (
-              <Cards key={index} title={item.title} description={item.description} hastag={item.hastag} />
-            ))}
+              {card.map((item, index) => {
+              if(item.feito === true) {
+                return <Cards
+                key={index}
+                title={item.title}
+                description={item.description}
+                hastag={item.hastag}
+              />
+              }
+            })}
             </div>
           </div>
         </section>
@@ -104,7 +123,11 @@ const Boards = () => {
         >
           +
         </button>
-        {criarCard ? <FormCard fecharForm={setCriarCard} setCard={setCard} card={card} /> : ""}
+        {criarCard ? (
+          <FormCard fecharForm={setCriarCard} setCard={setCard} card={card} />
+        ) : (
+          ""
+        )}
       </section>
     </main>
   );

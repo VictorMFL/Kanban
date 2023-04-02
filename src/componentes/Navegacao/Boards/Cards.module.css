@@ -30,6 +30,8 @@
 
 .hastag {
   background: #e2d6ff;
+  display: flex;
+  flex-wrap: wrap;
   border-radius: 8px;
   padding: 6px;
   font-size: 0.9rem;
