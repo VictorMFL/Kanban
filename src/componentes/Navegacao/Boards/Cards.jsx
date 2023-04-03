@@ -14,6 +14,14 @@ const Cards = ({ id, title, description, hastag, afazer, fazendo, feito }) => {
     setVirarCard(!virarCard);
   }
 
+  function dados (event) {
+    console.log(event.target)
+  }
+
+  function excluirCard(event) {
+    console.log(event.target.id)
+  }
+
   return (
     <div className={virarCard ? styles.atrasCard : styles.areaCard}>
       {virarCard ? (
