@@ -14,6 +14,7 @@ const Boards = () => {
   const [criarCard, setCriarCard] = React.useState(false);
   const [card, setCard] = React.useState([
     {
+      id: Math.random(),
       title: "Exemplo de Título",
       description: "Exemplo de Descrição",
       hastag: "#Exemplo",
@@ -71,14 +72,22 @@ const Boards = () => {
         <section className={styles.gridCards}>
           <div>
             <h3 className={styles.afazer}>A fazer</h3>
-            {card.map((item, index) => {
-              if(item.afazer === true) {
-                return <Cards
-                key={index}
-                title={item.title}
-                description={item.description}
-                hastag={item.hastag}
-              />
+            {card.map((item) => {
+              if (item.afazer === true) {
+                item.fazendo = false;
+                item.feito = false;
+                return (
+                  <Cards
+                    key={item.id}
+                    id={item.id}
+                    title={item.title}
+                    description={item.description}
+                    hastag={item.hastag}
+                    afazer={item.afazer}
+                    fazendo={item.fazendo}
+                    feito={item.feito}
+                  />
+                );
               }
             })}
           </div>
@@ -86,32 +95,48 @@ const Boards = () => {
           <div>
             <h3 className={styles.fazendo}>Fazendo</h3>
             <div className={styles.card}>
-              {card.map((item, index) => {
-              if(item.fazendo === true) {
-                return <Cards
-                key={index}
-                title={item.title}
-                description={item.description}
-                hastag={item.hastag}
-              />
-              }
-            })}
+              {card.map((item) => {
+                if (item.fazendo === true) {
+                  item.afazer = false;
+                  item.feito = false;
+                  return (
+                    <Cards
+                      key={item.id}
+                      id={item.id}
+                      title={item.title}
+                      description={item.description}
+                      hastag={item.hastag}
+                      afazer={item.afazer}
+                      fazendo={item.fazendo}
+                      feito={item.feito}
+                    />
+                  );
+                }
+              })}
             </div>
           </div>
 
           <div>
             <h3 className={styles.feito}>Feito</h3>
             <div className={styles.card}>
-              {card.map((item, index) => {
-              if(item.feito === true) {
-                return <Cards
-                key={index}
-                title={item.title}
-                description={item.description}
-                hastag={item.hastag}
-              />
-              }
-            })}
+              {card.map((item) => {
+                if (item.feito === true) {
+                  item.afazer = false;
+                  item.fazendo = false;
+                  return (
+                    <Cards
+                      key={item.id}
+                      id={item.id}
+                      title={item.title}
+                      description={item.description}
+                      hastag={item.hastag}
+                      afazer={item.afazer}
+                      fazendo={item.fazendo}
+                      feito={item.feito}
+                    />
+                  );
+                }
+              })}
             </div>
           </div>
         </section>

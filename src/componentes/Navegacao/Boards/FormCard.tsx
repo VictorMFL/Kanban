@@ -28,7 +28,7 @@ const FormCard = ({ fecharForm, setCard, card }) => {
   const handleSubmit = (event: any | FormProps) => {
     event.preventDefault();
 
-    if (selectedOption === "teste") {
+    if (selectedOption === "afazer") {
       const dadosNovos = handleSave({
         id: Math.random(),
         title: titleValue,
@@ -109,7 +109,7 @@ const FormCard = ({ fecharForm, setCard, card }) => {
             type="radio"
             name="coluna"
             id="afazer"
-            value="teste"
+            value="afazer"
             required
             onChange={radioHandler}
           />

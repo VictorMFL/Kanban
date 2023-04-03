@@ -6,11 +6,84 @@
   box-shadow: 0px 4px 16px #eae2fd;
   border-radius: 8px;
   margin-bottom: 2rem;
+  position: relative;
+}
+
+.detalhes {
+  position: absolute;
+  right: 1rem;
+  top: 10px;
+  font-size: 0.8rem;
+  color: #c8b1ff;
+  cursor: pointer;
+}
+
+.detalhes:hover {
+  text-decoration: underline;
 }
 
 .card {
   display: flex;
   flex-direction: column;
+}
+
+.atrasCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  max-width: 300px;
+  min-height: 9rem;
+  background: #ffffff;
+  box-shadow: 0px 4px 16px #eae2fd;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  position: relative;
+  transform: rotateY(180deg);
+  animation: virarCard 1s forwards;
+}
+
+@keyframes virarCard {
+  to {
+    transform: initial;
+  }
+}
+
+.atrasCard .detalhes {
+  position: absolute;
+  left: 1rem;
+  top: 10px;
+}
+
+.menu > p {
+  position: absolute;
+  right: 1rem;
+  top: 10px;
+  cursor: pointer;
+}
+
+.mover > h4 {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.movimentarCard {
+  display: flex;
+  margin-top: 40px;
+}
+
+.movimentarCard > img {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.atrasCard .title,
+.atrasCard .description,
+.atrasCard .hastag {
+  display: none;
 }
 
 .title {
