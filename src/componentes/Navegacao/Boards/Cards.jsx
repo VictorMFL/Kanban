@@ -25,15 +25,51 @@ const Cards = ({
   }
 
   function RemoverCard(event) {
-    const num = Number.parseInt(event.target.id);
+    const num = Number(event.target.id);
     const idDoObjetoASerRemovido = num;
     console.log(idDoObjetoASerRemovido);
     setCard((card) => card.filter((obj) => obj.id !== idDoObjetoASerRemovido));
   }
 
+  function moverParaAfazer(event) {
+    setCard((card) =>
+      card.map((cards) => {
+        if (cards.id === Number(event.target.id)) {
+          return { ...cards, afazer: true, fazendo: false, feito: false };
+        } else {
+          return cards;
+        }
+      })
+    );
+  }
+
+  function moverParaFazendo(event) {
+    setCard((card) =>
+      card.map((cards) => {
+        if (cards.id === Number(event.target.id)) {
+          return { ...cards, afazer: false, fazendo: true, feito: false };
+        } else {
+          return cards;
+        }
+      })
+    );
+  }
+
+  function moverParaFeito(event) {
+    setCard((card) =>
+      card.map((cards) => {
+        if (cards.id === Number(event.target.id)) {
+          return { ...cards, afazer: false, fazendo: false, feito: true };
+        } else {
+          return cards;
+        }
+      })
+    );
+  }
+
   React.useEffect(() => {
     console.log(card);
-  }, [RemoverCard]);
+  }, [moverParaFazendo]);
 
   return (
     <div className={virarCard ? styles.atrasCard : styles.areaCard}>
@@ -64,12 +100,16 @@ const Cards = ({
                     src={iconFazendo}
                     alt="icone para colocar o card na coluna Fazendo"
                     title="Mover para Fazendo"
+                    id={id}
+                    onClick={moverParaFazendo}
                   />
 
                   <img
                     src={iconFeito}
                     alt="icone para colocar o card na coluna Feito"
                     title="Mover para Feito"
+                    id={id}
+                    onClick={moverParaFeito}
                   />
                 </>
               ) : fazendo === true ? (
@@ -78,12 +118,16 @@ const Cards = ({
                     src={iconAfazer}
                     alt="icone para colocar o card na coluna A fazer"
                     title="Mover para A fazer"
+                    id={id}
+                    onClick={moverParaAfazer}
                   />
 
                   <img
                     src={iconFeito}
                     alt="icone para colocar o card na coluna Feito"
                     title="Mover para Feito"
+                    id={id}
+                    onClick={moverParaFeito}
                   />
                 </>
               ) : feito === true ? (
@@ -92,12 +136,16 @@ const Cards = ({
                     src={iconAfazer}
                     alt="icone para colocar o card na coluna A fazer"
                     title="Mover para A fazer"
+                    id={id}
+                    onClick={moverParaAfazer}
                   />
 
                   <img
                     src={iconFazendo}
                     alt="icone para colocar o card na coluna Fazendo"
                     title="Mover para Fazendo"
+                    id={id}
+                    onClick={moverParaFazendo}
                   />
                 </>
               ) : null}
