@@ -9,7 +9,7 @@ import FormCard from "./FormCard";
 import Cards from "./Cards";
 
 const Boards = () => {
-  const [value, setValue] = React.useState("");
+  const [valueFiltro, setValueFiltro] = React.useState("");
   const [pesquisa, setPequisa] = React.useState("");
   const [criarCard, setCriarCard] = React.useState(false);
   const [card, setCard] = React.useState([
@@ -40,15 +40,16 @@ const Boards = () => {
 
         <menu className={styles.pesquisa}>
           <select
-            value={value}
-            onChange={({ target }) => setValue(target.value)}
+            value={valueFiltro}
+            onChange={({ target }) => setValueFiltro(target.value)}
           >
             <option disabled value="">
               Filtrar
             </option>
-            <option value="feitos">Feitos</option>
-            <option value="fazendo">Fazendo</option>
             <option value="a-fazer">A fazer</option>
+            <option value="fazendo">Fazendo</option>
+            <option value="feitos">Feitos</option>
+            <option value="todos">Todos</option>
           </select>
 
           <div className={styles.areaInput}>
@@ -66,34 +67,119 @@ const Boards = () => {
           </div>
         </menu>
 
-        <section className={styles.gridCards}>
+        {valueFiltro === "" || valueFiltro === "todos" ? (
+          <section className={styles.gridCards}>
+            <div>
+              <h3 className={styles.afazer}>A fazer</h3>
+              {card.map((item) => {
+                if (item.afazer === true) {
+                  item.fazendo = false;
+                  item.feito = false;
+                  return (
+                    <Cards
+                      key={item.id}
+                      id={item.id}
+                      title={item.title}
+                      description={item.description}
+                      hastag={item.hastag}
+                      afazer={item.afazer}
+                      fazendo={item.fazendo}
+                      feito={item.feito}
+                      card={card}
+                      setCard={setCard}
+                    />
+                  );
+                }
+              })}
+            </div>
+
+            <div>
+              <h3 className={styles.fazendo}>Fazendo</h3>
+              <div className={styles.card}>
+                {card.map((item) => {
+                  if (item.fazendo === true) {
+                    item.afazer = false;
+                    item.feito = false;
+                    return (
+                      <Cards
+                        key={item.id}
+                        id={item.id}
+                        title={item.title}
+                        description={item.description}
+                        hastag={item.hastag}
+                        afazer={item.afazer}
+                        fazendo={item.fazendo}
+                        feito={item.feito}
+                        card={card}
+                        setCard={setCard}
+                      />
+                    );
+                  }
+                })}
+              </div>
+            </div>
+
+            <div>
+              <h3 className={styles.feito}>Feito</h3>
+              <div className={styles.card}>
+                {card.map((item) => {
+                  if (item.feito === true) {
+                    item.afazer = false;
+                    item.fazendo = false;
+                    return (
+                      <Cards
+                        key={item.id}
+                        id={item.id}
+                        title={item.title}
+                        description={item.description}
+                        hastag={item.hastag}
+                        afazer={item.afazer}
+                        fazendo={item.fazendo}
+                        feito={item.feito}
+                        card={card}
+                        setCard={setCard}
+                      />
+                    );
+                  }
+                })}
+              </div>
+            </div>
+          </section>
+        ) : null}
+
+        {valueFiltro === "a-fazer" ? (
           <div>
             <h3 className={styles.afazer}>A fazer</h3>
-            {card.map((item) => {
-              if (item.afazer === true) {
-                item.fazendo = false;
-                item.feito = false;
-                return (
-                  <Cards
-                    key={item.id}
-                    id={item.id}
-                    title={item.title}
-                    description={item.description}
-                    hastag={item.hastag}
-                    afazer={item.afazer}
-                    fazendo={item.fazendo}
-                    feito={item.feito}
-                    card={card}
-                    setCard={setCard}
-                  />
-                );
-              }
-            })}
+            <div className={styles.tabelaAfazeres}>
+              {card.map((item) => {
+                if (item.afazer === true) {
+                  item.fazendo = false;
+                  item.feito = false;
+                  return (
+                    <Cards
+                      key={item.id}
+                      id={item.id}
+                      title={item.title}
+                      description={item.description}
+                      hastag={item.hastag}
+                      afazer={item.afazer}
+                      fazendo={item.fazendo}
+                      feito={item.feito}
+                      card={card}
+                      setCard={setCard}
+                    />
+                  );
+                }
+              })}
+            </div>
           </div>
+        ) : null}
 
+        {valueFiltro === "fazendo" ? (
           <div>
             <h3 className={styles.fazendo}>Fazendo</h3>
             <div className={styles.card}>
+            <div className={styles.tabelaAfazeres}>
               {card.map((item) => {
                 if (item.fazendo === true) {
                   item.afazer = false;
@@ -114,12 +200,16 @@ const Boards = () => {
                   );
                 }
               })}
+              </div>
             </div>
           </div>
+        ) : null}
 
+        {valueFiltro === "feitos" ? (
           <div>
             <h3 className={styles.feito}>Feito</h3>
             <div className={styles.card}>
+            <div className={styles.tabelaAfazeres}>
               {card.map((item) => {
                 if (item.feito === true) {
                   item.afazer = false;
@@ -141,8 +231,9 @@ const Boards = () => {
                 }
               })}
             </div>
+            </div>
           </div>
-        </section>
+        ) : null}
 
         <button
           className={styles.criarCard}
