@@ -32,6 +32,23 @@ const Boards = () => {
     setCriarCard(!criarCard);
   }
 
+  const inputRef = React.useRef();
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    inputRef.current.value = "";
+    inputRef.current.focus();
+  }
+
+  function limparPesquisa() {
+    setPequisa("");
+    inputRef.current.value = "";
+  }
+
+  const filteredData = card.filter((item) => {
+    return item.title.toLowerCase().includes(pesquisa.toLowerCase());
+  });
+
   return (
     <main className="containerNav">
       <NavBar />
@@ -52,9 +69,11 @@ const Boards = () => {
             <option value="todos">Todos</option>
           </select>
 
-          <div className={styles.areaInput}>
+          <form className={styles.areaInput} onSubmit={handleSubmit}>
             <label htmlFor="pesquisa">
-              <img src={iconPesquisa} alt="Icone de uma Lupa" />
+              <button type="submit">
+                <img src={iconPesquisa} alt="Icone de uma Lupa" />
+              </button>
             </label>
             <input
               type="text"
@@ -63,8 +82,19 @@ const Boards = () => {
               value={pesquisa}
               onChange={handleChange}
               className={styles.input}
+              ref={inputRef}
             />
-          </div>
+            {pesquisa != "" &&
+              filteredData.map((item) => {
+                return (
+                  <div key={item.id} className={styles.resultadoPesquisa}>
+                    <a href={`#${item.id}`} onClick={limparPesquisa}>
+                      {item.title}
+                    </a>
+                  </div>
+                );
+              })}
+          </form>
         </menu>
 
         {valueFiltro === "" || valueFiltro === "todos" ? (
@@ -179,27 +209,27 @@ const Boards = () => {
           <div>
             <h3 className={styles.fazendo}>Fazendo</h3>
             <div className={styles.card}>
-            <div className={styles.tabelaAfazeres}>
-              {card.map((item) => {
-                if (item.fazendo === true) {
-                  item.afazer = false;
-                  item.feito = false;
-                  return (
-                    <Cards
-                      key={item.id}
-                      id={item.id}
-                      title={item.title}
-                      description={item.description}
-                      hastag={item.hastag}
-                      afazer={item.afazer}
-                      fazendo={item.fazendo}
-                      feito={item.feito}
-                      card={card}
-                      setCard={setCard}
-                    />
-                  );
-                }
-              })}
+              <div className={styles.tabelaAfazeres}>
+                {card.map((item) => {
+                  if (item.fazendo === true) {
+                    item.afazer = false;
+                    item.feito = false;
+                    return (
+                      <Cards
+                        key={item.id}
+                        id={item.id}
+                        title={item.title}
+                        description={item.description}
+                        hastag={item.hastag}
+                        afazer={item.afazer}
+                        fazendo={item.fazendo}
+                        feito={item.feito}
+                        card={card}
+                        setCard={setCard}
+                      />
+                    );
+                  }
+                })}
               </div>
             </div>
           </div>
@@ -209,28 +239,28 @@ const Boards = () => {
           <div>
             <h3 className={styles.feito}>Feito</h3>
             <div className={styles.card}>
-            <div className={styles.tabelaAfazeres}>
-              {card.map((item) => {
-                if (item.feito === true) {
-                  item.afazer = false;
-                  item.fazendo = false;
-                  return (
-                    <Cards
-                      key={item.id}
-                      id={item.id}
-                      title={item.title}
-                      description={item.description}
-                      hastag={item.hastag}
-                      afazer={item.afazer}
-                      fazendo={item.fazendo}
-                      feito={item.feito}
-                      card={card}
-                      setCard={setCard}
-                    />
-                  );
-                }
-              })}
-            </div>
+              <div className={styles.tabelaAfazeres}>
+                {card.map((item) => {
+                  if (item.feito === true) {
+                    item.afazer = false;
+                    item.fazendo = false;
+                    return (
+                      <Cards
+                        key={item.id}
+                        id={item.id}
+                        title={item.title}
+                        description={item.description}
+                        hastag={item.hastag}
+                        afazer={item.afazer}
+                        fazendo={item.fazendo}
+                        feito={item.feito}
+                        card={card}
+                        setCard={setCard}
+                      />
+                    );
+                  }
+                })}
+              </div>
             </div>
           </div>
         ) : null}

@@ -72,7 +72,7 @@ const Cards = ({
   }, [moverParaFazendo]);
 
   return (
-    <div className={virarCard ? styles.atrasCard : styles.areaCard}>
+    <div className={virarCard ? styles.atrasCard : styles.areaCard} id={id} >
       {virarCard ? (
         <>
           <menu className={styles.menu}>
