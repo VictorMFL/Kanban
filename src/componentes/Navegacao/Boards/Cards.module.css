@@ -52,15 +52,23 @@
 
 .atrasCard .detalhes {
   position: absolute;
+  max-width: 10%;
   left: 1rem;
   top: 10px;
 }
 
-.menu > p {
+.menu > .iconeExcluir {
   position: absolute;
   right: 1rem;
   top: 10px;
+  z-index: 1000;
   cursor: pointer;
+  background-color: transparent;
+}
+
+.iconeExcluir > * path {
+  z-index: -1;
+  pointer-events: none;
 }
 
 .mover > h4 {

@@ -30,7 +30,7 @@ const FormCard = ({ fecharForm, setCard, card }) => {
 
     if (selectedOption === "afazer") {
       const dadosNovos = handleSave({
-        id: Math.random(),
+        id: Math.floor(Math.random() * 10000),
         title: titleValue,
         description: descriptionValue,
         hastag: hastagValue,
@@ -43,7 +43,7 @@ const FormCard = ({ fecharForm, setCard, card }) => {
 
     if (selectedOption === "fazendo") {
       const dadosNovos = handleSave({
-        id: Math.random(),
+        id: Math.floor(Math.random() * 10000),
         title: titleValue,
         description: descriptionValue,
         hastag: hastagValue,
@@ -56,7 +56,7 @@ const FormCard = ({ fecharForm, setCard, card }) => {
 
     if (selectedOption === "feito") {
       const dadosNovos = handleSave({
-        id: Math.random(),
+        id: Math.floor(Math.random() * 10000),
         title: titleValue,
         description: descriptionValue,
         hastag: hastagValue,
@@ -104,18 +104,17 @@ const FormCard = ({ fecharForm, setCard, card }) => {
         <h4>Em qual coluna esse card tem que estar?</h4>
 
         <section>
-         <div>
-         <input
-            type="radio"
-            name="coluna"
-            id="afazer"
-            value="afazer"
-            required
-            onChange={radioHandler}
-          />
-          <label htmlFor="afazer">A fazer</label>
-         </div>
-
+          <div>
+            <input
+              type="radio"
+              name="coluna"
+              id="afazer"
+              value="afazer"
+              required
+              onChange={radioHandler}
+            />
+            <label htmlFor="afazer">A fazer</label>
+          </div>
 
           <div>
             <input
@@ -138,7 +137,6 @@ const FormCard = ({ fecharForm, setCard, card }) => {
             />
             <label htmlFor="feito">Feito</label>
           </div>
-
         </section>
 
         <button type="submit">Concluir</button>

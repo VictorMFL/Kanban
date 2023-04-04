@@ -7,20 +7,33 @@ import iconAfazer from "../../../assets/afazer.svg";
 import iconFazendo from "../../../assets/fazendo.svg";
 import iconFeito from "../../../assets/feito.svg";
 
-const Cards = ({ id, title, description, hastag, afazer, fazendo, feito }) => {
+const Cards = ({
+  id,
+  title,
+  description,
+  hastag,
+  afazer,
+  fazendo,
+  feito,
+  card,
+  setCard,
+}) => {
   const [virarCard, setVirarCard] = React.useState(false);
 
   function virar() {
     setVirarCard(!virarCard);
   }
 
-  function dados (event) {
-    console.log(event.target)
+  function RemoverCard(event) {
+    const num = Number.parseInt(event.target.id);
+    const idDoObjetoASerRemovido = num;
+    console.log(idDoObjetoASerRemovido);
+    setCard((card) => card.filter((obj) => obj.id !== idDoObjetoASerRemovido));
   }
 
-  function excluirCard(event) {
-    console.log(event.target.id)
-  }
+  React.useEffect(() => {
+    console.log(card);
+  }, [RemoverCard]);
 
   return (
     <div className={virarCard ? styles.atrasCard : styles.areaCard}>
@@ -30,9 +43,16 @@ const Cards = ({ id, title, description, hastag, afazer, fazendo, feito }) => {
             <span className={styles.detalhes} onClick={virar}>
               <HiOutlineArrowLeft size={24} />
             </span>
-            <p>
-              <MdDelete size={24} color="#ff0000" title="Excluir" />
-            </p>
+            <div className={styles.iconeExcluir}>
+              <MdDelete
+                size={24}
+                color="#ff0000"
+                title="Excluir"
+                onClick={RemoverCard}
+                id={id}
+                
+              />
+              </div>
           </menu>
           <section className={styles.mover}>
             <h4>Mover para</h4>
@@ -44,7 +64,6 @@ const Cards = ({ id, title, description, hastag, afazer, fazendo, feito }) => {
                     src={iconFazendo}
                     alt="icone para colocar o card na coluna Fazendo"
                     title="Mover para Fazendo"
-                    onClick={dados}
                   />
 
                   <img
@@ -93,15 +112,15 @@ const Cards = ({ id, title, description, hastag, afazer, fazendo, feito }) => {
         </span>
       )}
 
-      <div className={styles.card} onClick={excluirCard} id={id}>
-        <p className={styles.title} id={id}>
+      <div className={styles.card}>
+        <p className={styles.title}>
           {title}
         </p>
-        <p className={styles.description} id={id}>
+        <p className={styles.description}>
           {description}
         </p>
         {hastag === "" ? null : (
-          <span className={styles.hastag} id={id}>
+          <span className={styles.hastag}>
             {hastag}
           </span>
         )}

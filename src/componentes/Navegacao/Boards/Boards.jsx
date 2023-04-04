@@ -14,7 +14,7 @@ const Boards = () => {
   const [criarCard, setCriarCard] = React.useState(false);
   const [card, setCard] = React.useState([
     {
-      id: Math.random(),
+      id: Math.floor(Math.random() * 10000),
       title: "Exemplo de Título",
       description: "Exemplo de Descrição",
       hastag: "#Exemplo",
@@ -23,8 +23,6 @@ const Boards = () => {
       feito: false,
     },
   ]);
-
-  console.log(card);
 
   function handleChange({ target }) {
     setPequisa(target.value);
@@ -45,7 +43,6 @@ const Boards = () => {
             value={value}
             onChange={({ target }) => setValue(target.value)}
           >
-            <div className={styles.contraste}></div>
             <option disabled value="">
               Filtrar
             </option>
@@ -86,6 +83,8 @@ const Boards = () => {
                     afazer={item.afazer}
                     fazendo={item.fazendo}
                     feito={item.feito}
+                    card={card}
+                    setCard={setCard}
                   />
                 );
               }
@@ -109,6 +108,8 @@ const Boards = () => {
                       afazer={item.afazer}
                       fazendo={item.fazendo}
                       feito={item.feito}
+                      card={card}
+                      setCard={setCard}
                     />
                   );
                 }
@@ -133,6 +134,8 @@ const Boards = () => {
                       afazer={item.afazer}
                       fazendo={item.fazendo}
                       feito={item.feito}
+                      card={card}
+                      setCard={setCard}
                     />
                   );
                 }

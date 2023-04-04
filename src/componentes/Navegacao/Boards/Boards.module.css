@@ -42,14 +42,6 @@
   outline: none;
 }
 
-.contraste {
-  z-index: 100;
-  width: 24px;
-  height: 12px;
-  background-image: url(../../../assets/filtro.svg);
-  background-size: cover;
-}
-
 .pesquisa > select option {
   background-color: #ddd;
   color: #000;
