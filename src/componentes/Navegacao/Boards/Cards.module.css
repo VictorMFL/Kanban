@@ -145,3 +145,9 @@
     font-size: 0.8rem;
   }
 }
+
+@media(max-width:604px) {
+  .areaCard {
+    min-width: 170px;
+  }
+}

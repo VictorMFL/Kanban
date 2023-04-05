@@ -7,10 +7,8 @@
   position: relative;
 }
 
-@media(max-width: 1300px) {
-  .boards {
-    padding: 1rem 0 0 2rem ;
-  }
+.menuNavegacaoMobile {
+  display: none;
 }
 
 .boards > .title {
@@ -25,7 +23,7 @@
   display: block;
   position: absolute;
   top: 10px;
-  left: 15rem;
+  left: 10ch;
   background-image: url(../../../assets/clip.svg);
 }
 
@@ -62,7 +60,6 @@
   width: 100%;
   display: flex;
   align-items: center;
-  position: relative;
   position: relative;
 }
 
@@ -192,4 +189,55 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   margin-top: 2rem;
+}
+
+@media(max-width: 1300px) {
+  .boards {
+    padding: 1rem 0 0 2rem ;
+  }
+}
+
+@media(max-width:800px) {
+  .menuNavegacaoMobile {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+}
+
+@media(max-width:604px) {
+  .boards > .title {
+    margin-top: 10px;
+    font-size: 1.4rem;
+  }
+  
+  .pesquisa > select {
+    padding: 0.8rem 1rem;
+  }
+  
+  .gridCards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  
+  .gridCards > div > h3 {
+    margin-bottom: 2rem;
+  }
+  
+  .criarCard {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .tabelaAfazeres {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 2rem;
+  }
 }

@@ -93,13 +93,22 @@ h1 {
   min-height: 100vh;
 }
 
-@media(max-width: 1200px) {
+@media (max-width: 1200px) {
   .containerNav {
     grid-template-columns: 10rem 1fr;
   }
 
   .form {
-    max-height: 40vh;
+    min-height: 40vh;
+  }
+}
+
+@media (max-width: 800px) {
+  .containerNav {
+    grid-template-columns: 1fr;
+  }
+  .navegacao {
+    display: none;
   }
 }
 
@@ -140,7 +149,7 @@ h1 {
   margin-bottom: 10px;
 }
 
-.form input[type=radio] {
+.form input[type="radio"] {
   margin-right: 10px;
   cursor: pointer;
 }

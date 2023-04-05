@@ -13,7 +13,7 @@ const NavBar = () => {
   const [relatorio, setRelatorio] = React.useState(false);
   const [config, setConfig] = React.useState(false);
   return (
-    <div className='containerNav'>
+    <div className='containerNav navegacao'>
       <section className={styles.navegacao}>
         <img src={logo} alt="logo" />
         <menu>

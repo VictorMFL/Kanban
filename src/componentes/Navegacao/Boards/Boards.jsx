@@ -8,7 +8,11 @@ import iconPesquisa from "../../../assets/pesquisa.svg";
 import FormCard from "./FormCard";
 import Cards from "./Cards";
 
+import { MdMenu } from "react-icons/md";
+import NavBarMobile from "../NavBar/NavBarMobile";
+
 const Boards = () => {
+  const [navBarMobile, setNavBarMobile] = React.useState(false)
   const [valueFiltro, setValueFiltro] = React.useState("");
   const [pesquisa, setPequisa] = React.useState("");
   const [criarCard, setCriarCard] = React.useState(false);
@@ -49,11 +53,19 @@ const Boards = () => {
     return item.title.toLowerCase().includes(pesquisa.toLowerCase());
   });
 
+  const ActiveNavBar = () => {
+    setNavBarMobile(!navBarMobile)
+  }
+
   return (
     <main className="containerNav">
       <NavBar />
+      {navBarMobile && <NavBarMobile CloseNavBar={ActiveNavBar} /> }
       <section className={styles.boards}>
         <h1 className={styles.title}>Meu Kanban</h1>
+        <nav className={styles.menuNavegacaoMobile}>
+          <MdMenu size={32} onClick={ActiveNavBar} />
+        </nav>
 
         <menu className={styles.pesquisa}>
           <select
