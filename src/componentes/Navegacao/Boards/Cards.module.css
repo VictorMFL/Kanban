@@ -121,3 +121,27 @@
   font-weight: 500;
   line-break: anywhere;
 }
+
+@media(max-width:1115px) {
+  .areaCard {
+    padding: 15px;
+    min-width: 180px;
+    margin-right: 10px;
+  }
+
+  .detalhes {
+    top: 8px;
+    right: 8px;
+    font-size: 0.7rem;
+  }
+
+  .title {
+    font-size: 0.9rem;
+    margin-top: 5px;
+  }
+
+  .description,
+  .hastag {
+    font-size: 0.8rem;
+  }
+}

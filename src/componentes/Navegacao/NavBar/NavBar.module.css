@@ -5,6 +5,12 @@
   position: fixed;
 }
 
+@media(max-width:1200px) {
+  .navegacao {
+    padding: 1rem;
+  }
+}
+
 .navegacao > img {
   margin-bottom: 3rem;
 }

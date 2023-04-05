@@ -83,6 +83,7 @@ const Boards = () => {
               onChange={handleChange}
               className={styles.input}
               ref={inputRef}
+              autoComplete="off"
             />
             {pesquisa != "" &&
               filteredData.map((item) => {
