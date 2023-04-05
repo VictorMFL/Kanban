@@ -223,7 +223,21 @@
   
   .gridCards {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  .gridCards > div {
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+  }
+
+  .gridCards > div:nth-child(even) {
+    background-color: #ddd;
+  }
+
+  .gridCards > div:nth-child(odd) {
+    background-color: #eee;
   }
   
   .gridCards > div > h3 {
@@ -239,5 +253,16 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     margin-top: 2rem;
+  }
+}
+
+@media(max-width:400px) {
+  .pesquisa {
+    flex-direction: column;
+    gap: 20px;
+    padding: 0;
+  }
+  .areaInput input {
+    margin-left: 0;
   }
 }

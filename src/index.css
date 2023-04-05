@@ -126,6 +126,12 @@ h1 {
   flex-direction: column;
 }
 
+@media(max-width:800px) {
+  .form {
+    width: 80%;
+  }
+}
+
 .form > input {
   margin-bottom: 2rem;
   padding: 1rem;
