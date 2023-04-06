@@ -44,7 +44,7 @@ const router = createBrowserRouter([
   },
 
   {
-    path: "Kanban//inscreva-se",
+    path: "Kanban/inscreva-se",
     element: <Cadastro />,
   },
 ]);

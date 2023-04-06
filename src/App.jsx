@@ -7,6 +7,7 @@ const App = () => {
   return (
     <div className='container'>
       <section>
+        <h3 className='observacao' >OBS: pode entrar com qualquer e-mail e qualquer senha!</h3>
         <div className='logo'>
           <img src={logo} alt='logo da empresa Vertigo' />
           <h1>Vertigo</h1>

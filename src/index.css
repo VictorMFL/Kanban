@@ -9,9 +9,12 @@ body {
   scroll-behavior: smooth;
 }
 
+.observacao {
+  color: #ff0000;
+}
+
 .container {
   display: flex;
-  justify-content: center;
   font-family: "Titillium Web";
 }
 
@@ -20,12 +23,11 @@ body {
   padding: 40px 5rem 0 112px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 .container > img {
   width: 50%;
-  height: 100vh;
+  max-height: 120vh;
 }
 
 .logo {
