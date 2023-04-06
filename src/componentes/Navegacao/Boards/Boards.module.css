@@ -66,7 +66,7 @@
 .areaInput img {
   position: absolute;
   top: 15px;
-  left: 2.5rem;
+  left: 2rem;
   cursor: pointer;
 }
 
@@ -216,7 +216,15 @@
     margin-top: 10px;
     font-size: 1.4rem;
   }
-  
+
+  .boards > .title::after {
+    top: 0px;
+  }
+
+  .areaInput {
+    padding-right: 2rem;
+  }
+
   .pesquisa > select {
     padding: 0.8rem 1rem;
   }
@@ -224,6 +232,7 @@
   .gridCards {
     display: grid;
     grid-template-columns: 1fr;
+    padding-right: 2rem;
   }
 
   .gridCards > div {

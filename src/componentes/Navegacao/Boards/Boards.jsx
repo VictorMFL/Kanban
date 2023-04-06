@@ -83,9 +83,7 @@ const Boards = () => {
 
           <form className={styles.areaInput} onSubmit={handleSubmit}>
             <label htmlFor="pesquisa">
-              <button type="submit">
                 <img src={iconPesquisa} alt="Icone de uma Lupa" />
-              </button>
             </label>
             <input
               type="text"

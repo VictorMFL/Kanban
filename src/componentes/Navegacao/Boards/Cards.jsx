@@ -15,7 +15,6 @@ const Cards = ({
   afazer,
   fazendo,
   feito,
-  card,
   setCard,
 }) => {
   const [virarCard, setVirarCard] = React.useState(false);
@@ -27,7 +26,6 @@ const Cards = ({
   function RemoverCard(event) {
     const num = Number(event.target.id);
     const idDoObjetoASerRemovido = num;
-    console.log(idDoObjetoASerRemovido);
     setCard((card) => card.filter((obj) => obj.id !== idDoObjetoASerRemovido));
   }
 
@@ -66,10 +64,6 @@ const Cards = ({
       })
     );
   }
-
-  React.useEffect(() => {
-    console.log(card);
-  }, [moverParaFazendo]);
 
   return (
     <div className={virarCard ? styles.atrasCard : styles.areaCard} id={id} >
